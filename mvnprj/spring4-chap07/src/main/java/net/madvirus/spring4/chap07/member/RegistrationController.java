@@ -22,6 +22,8 @@ public class RegistrationController {
 	public String regist(
 			@ModelAttribute("memberInfo") MemberRegistRequest memRegReq,
 			BindingResult bindingResult) {
+		memberService = new MemberService();
+		
 		new MemberRegistValidator().validate(memRegReq, bindingResult);
 		if (bindingResult.hasErrors()) {
 			return MEMBER_REGISTRATION_FORM;
